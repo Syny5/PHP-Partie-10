@@ -33,7 +33,9 @@
           <main>
             <?php
               $genderRegex = '/Monsieur|Madame/'; // La valeur ne peut être que "Monsieur" ou "Madame"
-              $shortString = '/^[a-zA-Zéèêëiîïôöüäç\' -]{2,30}$/'; // Texte de 2 à 30 caractères pouvant contenir des lettes ou des symboles indiqués
+              $firstNameRegex = '/[a-zA-Zéèêëiîïôöüäç]{2,12}[-]?[a-zA-Zéèêëiîïôöüäç]{2,12}/';
+              $lastNameRegex = '/[a-zA-Zéèêëiîïôöüäç ]{1,15}[- \']?[a-zA-Zéèêëiîïôöüäç ]{2,18}/';
+              $societyRegex = '/[a-zA-ZéèêëiîïôöüäçàÉÈÀÊÔÎÛÂÙ ]{1,15}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{1,18}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{0,18}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{1,18}/'
               $ageRegex = '/[1-9]{1}+[0-9]{1}/'; // 2 chiffres allant de 0 à 9, le premier ne peut pas être 0. (Donc âge mini = 10 et âge maxi = 99)
             ?>
             <!-- Début du formulaire -->
@@ -47,11 +49,11 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="lastName">Nom :</label><span class="error">* <?= !empty($_POST) && (preg_match($shortString, $_POST['lastName']) == false) ? 'Nom invalide !' : ''; ?></span>
+                <label for="lastName">Nom :</label><span class="error">* <?= !empty($_POST) && (preg_match($lastNameRegex, $_POST['lastName']) == false) ? 'Nom invalide !' : ''; ?></span>
                 <input name="lastName" type="text" class="form-control" value="<?= $_POST['lastName'] ?>">
               </div>
               <div class="form-group">
-                <label for="firstName">Prénom :</label><span class="error">* <?= !empty($_POST) && (preg_match($shortString, $_POST['firstName']) == false) ? 'Prénom invalide !' : ''; ?></span>
+                <label for="firstName">Prénom :</label><span class="error">* <?= !empty($_POST) && (preg_match($firstNameRegex, $_POST['firstName']) == false) ? 'Prénom invalide !' : ''; ?></span>
                 <input name="firstName" type="text" class="form-control" value="<?= $_POST['firstName'] ?>">
               </div>
               <div class="form-group">
@@ -59,14 +61,14 @@
                 <input type="number" name="age" class="form-control" value="<?= $_POST['age'] ?>">
               </div>
               <div class="form-group">
-                <label for="society">Société :</label><span class="error">* <?= !empty($_POST) && (preg_match($shortString, $_POST['society']) == false) ? 'Société invalide !' : ''; ?></span>
+                <label for="society">Société :</label><span class="error">* <?= !empty($_POST) && (preg_match($societyRegex, $_POST['society']) == false) ? 'Société invalide !' : ''; ?></span>
                 <input type="text" name="society" class="form-control" value="<?= $_POST['society'] ?>">
               </div>
               <button type="submit" class="btn btn-success mb-3">Envoyer le formulaire</button>
             </form>
             <?php // Si les conditions regex sont remplis, nous afficherons les réponses du formulaire.
-              if(preg_match($genderRegex, $_POST['gender']) && preg_match($shortString, $_POST['lastName']) && preg_match($shortString, $_POST['firstName'])
-              && preg_match($ageRegex, $_POST['age']) && preg_match($shortString, $_POST['society'])){
+              if(preg_match($genderRegex, $_POST['gender']) && preg_match($lastNameRegex, $_POST['lastName']) && preg_match($firstNameRegex, $_POST['firstName'])
+              && preg_match($ageRegex, $_POST['age']) && preg_match($societyRegex, $_POST['society'])){
             ?>
             <p><?= $_POST['gender'] ?></p>
             <p><?= $_POST['lastName'] ?></p>
