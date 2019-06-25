@@ -33,9 +33,9 @@
           <main>
             <?php
               $genderRegex = '/Monsieur|Madame/'; // La valeur ne peut être que "Monsieur" ou "Madame"
-              $firstNameRegex = '/[a-zA-Zéèêëiîïôöüäç]{2,12}[-]?[a-zA-Zéèêëiîïôöüäç]{2,12}/';
-              $lastNameRegex = '/[a-zA-Zéèêëiîïôöüäç ]{1,15}[- \']?[a-zA-Zéèêëiîïôöüäç ]{2,18}/';
-              $societyRegex = '/[a-zA-ZéèêëiîïôöüäçàÉÈÀÊÔÎÛÂÙ ]{1,15}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{1,18}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{0,18}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{1,18}/'
+              $firstNameRegex = '/[a-zA-Zéèêëiîïôöüäç]{2,12}[-]?[a-zA-Zéèêëiîïôöüäç]{2,12}/'; // Le prénom peut être simple ou composé, il ne pourra excéder 24 caractères ni terminer par un caractère spécial.
+              $lastNameRegex = '/[a-zA-Zéèêëiîïôöüäç ]{1,15}[- \']{0,1}[a-zA-Zéèêëiîïôöüäç ]{0,18}[- \']{0,1}[a-zA-Zéèêëiîïôöüäç ]{1,10}/'; // Le nom peut être simple ou composé, il n'excédera pas 43 caractères et ne contiendra pas plus de 2 caractères spéciaux (-') à l'intérieur du texte.
+              $societyRegex = '/[a-zA-ZéèêëiîïôöüäçàÉÈÀÊÔÎÛÂÙ ]{1,15}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{1,18}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{0,18}[- \']?[a-zA-ZéèêëiîïôöüäçÉÈÀÊÔÎÛÂÙ ]{1,18}/' // Même principe que le Regex du nom de famille mais avec plus de libertés scripturales et une longueur de texte potentiellement plus importante.
               $ageRegex = '/[1-9]{1}+[0-9]{1}/'; // 2 chiffres allant de 0 à 9, le premier ne peut pas être 0. (Donc âge mini = 10 et âge maxi = 99)
             ?>
             <!-- Début du formulaire -->

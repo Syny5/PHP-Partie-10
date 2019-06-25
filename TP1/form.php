@@ -50,7 +50,7 @@
       <input name="badges" type="number" class="form-control" value="<?= $_POST['badges'] ?>">
     </div>
     <div class="form-group">
-      <label for="codecademyLinks">Liens codecademy :</label><span class="error">* <?= !empty($_POST) && (preg_match($urlRegex, $codecademyLinks) == false) ? 'Lien codacademy invalide !' : '' ;?></span>
+      <label for="codecademyLinks">Liens codecademy :</label><span class="error"> <?= !empty($_POST) && (preg_match($urlRegex, $codecademyLinks) == false) ? 'Lien codacademy invalide !' : '' ;?></span>
       <input name="codecademyLinks" type="text" class="form-control" value="<?= $_POST['codecademyLinks'] ?>">
     </div>
     <div class="form-group">

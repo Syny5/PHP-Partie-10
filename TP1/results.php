@@ -9,7 +9,10 @@
 <p><?= $degree ?></p>
 <p><?= $poleEmploi ?></p>
 <p><?= $badges ?></p>
-<p><?= $codecademyLinks ?></p>
 <p><?= $superhero ?></p>
 <p><?= $hack ?></p>
 <p><?= $experience ?></p>
+<!-- Le lien codecademy n'étant pas obligatoire, nous ne l'afficherons que si la regex est respectée. -->
+<p><?php if(preg_match($urlRegex, $codecademyLinks)){
+  echo $codecademyLinks
+} ?></p>

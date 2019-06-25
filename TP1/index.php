@@ -25,8 +25,8 @@
                 if(preg_match($lastNameRegex, $lastName) && preg_match($firstNameRegex, $firstName) && preg_match($dateRegex, $birthDate) &&
                    preg_match($shortString, $nationality) && preg_match($lastNameRegex, $birthCountry) && preg_match($addressRegex, $physicalAddress) ||
                    preg_match($mailRegex, $mailAddress) && preg_match($phoneRegex, $phoneNumber) && preg_match($degreeRegex, $degree) &&
-                   preg_match($poleEmploiRegex, $poleEmploi) && preg_match($badgesRegex, $badges) && preg_match($urlRegex, $codecademyLinks) &&
-                   preg_match($longString, $superhero) && preg_match($longString, $hack) && preg_match($yesNoRegex, $experience)){
+                   preg_match($poleEmploiRegex, $poleEmploi) && preg_match($badgesRegex, $badges) && preg_match($longString, $superhero) && 
+                   preg_match($longString, $hack) && preg_match($yesNoRegex, $experience)){
                 include 'results.php';
                 }else{
               ?>
