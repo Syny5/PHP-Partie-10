@@ -13,6 +13,4 @@
 <p><?= $hack ?></p>
 <p><?= $experience ?></p>
 <!-- Le lien codecademy n'étant pas obligatoire, nous ne l'afficherons que si la regex est respectée. -->
-<p><?php if(preg_match($urlRegex, $codecademyLinks)){
-  echo $codecademyLinks
-} ?></p>
+<p><?= $codecademyLinks ?></p>
