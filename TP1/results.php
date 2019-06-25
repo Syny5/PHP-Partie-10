@@ -1,0 +1,15 @@
+<p><?= $lastName ?></p>
+<p><?= $firstName ?></p>
+<p><?= $birthDate ?></p>
+<p><?= $birthCountry ?></p>
+<p><?= $nationality ?></p>
+<p><?= $physicalAddress ?></p>
+<p><?= $mailAddress ?></p>
+<p><?= $phoneNumber ?></p>
+<p><?= $degree ?></p>
+<p><?= $poleEmploi ?></p>
+<p><?= $badges ?></p>
+<p><?= $codecademyLinks ?></p>
+<p><?= $superhero ?></p>
+<p><?= $hack ?></p>
+<p><?= $experience ?></p>
